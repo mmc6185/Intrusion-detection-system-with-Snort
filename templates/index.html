@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snort Web Interface</title>
+</head>
+<body>
+    <h1>Snort Web Interface</h1>
+    <p>Status: {{ status }}</p>
+    <form action="/start" method="post">
+        <label for="interface">Network Interface:</label>
+        <input type="text" name="interface" value="lo">
+        <button type="submit">Start Snort</button>
+    </form>
+    <form action="/stop" method="post">
+        <button type="submit">Stop Snort</button>
+    </form>
+    <a href="/logs">View Logs</a>
+</body>
+</html>
