@@ -1,19 +1,21 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Snort Web Interface</title>
+    <title>Snort Yönetim Paneli</title>
 </head>
 <body>
-    <h1>Snort Web Interface</h1>
-    <p>Status: {{ status }}</p>
+    <h1>Snort Yönetim Paneli</h1>
+    <p>Snort Durumu: {{ status }}</p>
     <form action="/start" method="post">
-        <label for="interface">Network Interface:</label>
+        <label>Ağ Arayüzü:</label>
         <input type="text" name="interface" value="lo">
-        <button type="submit">Start Snort</button>
+        <button type="submit">Snort'u Başlat</button>
     </form>
     <form action="/stop" method="post">
-        <button type="submit">Stop Snort</button>
+        <button type="submit">Snort'u Durdur</button>
     </form>
-    <a href="/logs">View Logs</a>
+    <a href="/logs">Logları Görüntüle</a> |
+    <a href="/configure">Kuralları Düzenle</a>
 </body>
 </html>
