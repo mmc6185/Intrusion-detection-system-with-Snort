@@ -1,21 +1,61 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <title>Snort Yönetim Paneli</title>
+    <meta charset="UTF-8">
+    <title>Snort IDS Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Snort Yönetim Paneli</h1>
-    <p>Snort Durumu: {{ status }}</p>
-    <form action="/start" method="post">
-        <label>Ağ Arayüzü:</label>
-        <input type="text" name="interface" value="lo">
-        <button type="submit">Snort'u Başlat</button>
-    </form>
-    <form action="/stop" method="post">
-        <button type="submit">Snort'u Durdur</button>
-    </form>
-    <a href="/logs">Logları Görüntüle</a> |
-    <a href="/configure">Kuralları Düzenle</a>
+    <!-- Sidebar -->
+    <nav id="sidebar" class="bg-dark text-white">
+        <div class="sidebar-header p-3">
+            <h3>Snort IDS</h3>
+        </div>
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#" id="dashboard-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#" id="alerts-link"><i class="fas fa-exclamation-triangle"></i> Uyarılar</a>
+            </li>
+            <li>
+                <a href="#" id="reports-link"><i class="fas fa-chart-pie"></i> Raporlar</a>
+            </li>
+            <li>
+                <a href="#" id="settings-link"><i class="fas fa-cog"></i> Ayarlar</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="content">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h4 class="ms-3">Snort IDS Dashboard</h4>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container-fluid" id="main-content">
+            <!-- İçerik buraya yüklenecek -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>
