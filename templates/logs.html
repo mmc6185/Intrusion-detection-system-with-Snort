@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Snort Logs</h2>
+<table id="logsTable" class="display" style="width:100%">
+  <thead>
+    <tr>
+      <th>Log Entry</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for line in logs %}
+    <tr>
+      <td>{{ line }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+  $(document).ready(function() {
+    $('#logsTable').DataTable();
+  });
+</script>
+{% endblock %}
