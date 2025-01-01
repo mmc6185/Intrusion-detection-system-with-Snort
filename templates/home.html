@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center">
+  <h1>Welcome to Snort IDS</h1>
+  <p>Please <a href="{{ url_for('main_bp.login') }}">Login</a> or <a href="{{ url_for('main_bp.register') }}">Register</a></p>
+</div>
+{% endblock %}
