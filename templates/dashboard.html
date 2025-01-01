@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+<p>This is a sample dashboard. Below is an example chart that shows log statistics.</p>
+
+<canvas id="logChart" width="400" height="150"></canvas>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+  // Örnek: /api/log_stats endpointinden veri çekip Chart.js ile gösterelim
+  $(document).ready(function(){
+    $.getJSON("{{ url_for('main_bp.log_stats') }}", function(data){
+      const ctx = document.getElementById('logChart').getContext('2d');
+      const logChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: data.labels,
+          datasets: [{
+            label: 'Alert Count by Destination IP',
+            data: data.data,
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: { 
+              beginAtZero: true 
+            }
+          }
+        }
+      });
+    });
+  });
+</script>
+{% endblock %}
