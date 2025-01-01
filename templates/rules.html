@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Manage Snort Rules</h2>
+<form method="POST">
+  {{ form.csrf_token }}
+  <div class="mb-3">
+    {{ form.rules.label }}
+    {{ form.rules(class="form-control", rows="10") }}
+  </div>
+  {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}
