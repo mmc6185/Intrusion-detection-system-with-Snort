@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Snort Control</h2>
+<p>Current status: <strong>{{ status }}</strong></p>
+
+<form method="POST">
+  <div class="row g-2">
+    <div class="col-auto">
+      <label for="interface" class="form-label">Interface:</label>
+      <input type="text" class="form-control" name="interface" value="lo" />
+    </div>
+    <div class="col-auto align-self-end">
+      <button name="action" value="start" class="btn btn-success">Start Snort</button>
+      <button name="action" value="stop" class="btn btn-danger">Stop Snort</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
